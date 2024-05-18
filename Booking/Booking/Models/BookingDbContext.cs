@@ -32,6 +32,6 @@ public class BookingDbContext : DbContext
             .HasAlternateKey(x => new { x.Number, x.HotelId });
 
         modelBuilder.Entity<BookedRoom>()
-            .HasAlternateKey(x => new { x.RoomId, x.UserId, x.StartDate });
+            .HasAlternateKey(x => new { x.RoomId, x.UserId, x.BookedDate });
     }
 }

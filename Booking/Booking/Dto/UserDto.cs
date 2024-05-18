@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Booking.Models.Entities;
+namespace Booking.Models;
 
-public class User
+public class UserDto
 {
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public Guid Id { get; set; }
     [MaxLength(70)]
     public string Name { get; set; } = null!;
     [MaxLength(100)]
