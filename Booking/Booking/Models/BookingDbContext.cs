@@ -13,13 +13,21 @@ public class BookingDbContext : DbContext
 
     public BookingDbContext()
     {
+        Database.Migrate();
     }
 
     public BookingDbContext(DbContextOptions<BookingDbContext> options)
     : base(options)
     {
+        Database.Migrate();
     }
-    
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        Database.Migrate();
+        base.OnConfiguring(optionsBuilder);
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<User>()
